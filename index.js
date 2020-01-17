@@ -30,12 +30,13 @@ var options = {
 };
 
 app.post('/', function (req, res){
+  var thing;
   request(options, function (error, response) {
     if (error) throw new Error(error);
     console.log(response.body);
-
+    thing = response.body;
   });
-  return {"Status": "200", "Body": response};
+  return res.json({"statusCode": "200", "body": thing});
 });
 
 
