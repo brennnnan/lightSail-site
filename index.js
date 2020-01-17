@@ -33,12 +33,19 @@ app.post('/', function (req, res){
   request(options, function (error, response) {
     if (error) throw new Error(error);
     console.log(response.body);
+
   });
+  return {"Status": "200", "Body": response};
 });
 
 
 
 
+app.get('/', (req, res) => {
+    return res.sendStatus(200);
+})
+
+//app.post('/', cors(), db.logEvent);
 
 
 
