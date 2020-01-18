@@ -684,9 +684,9 @@
 }
 
 .filepond--panel-root {
-  border-radius: 0.5em;
+  border-radius: 6px;
   background-color: #f1f0ef;
-  height: 78% !important;
+  height: 100% !important;
 }
 
 .filepond--panel {
@@ -827,7 +827,7 @@
   /* layout*/
   box-sizing: border-box;
   position: relative;
-  margin-bottom: 1em;
+
   /* base font size for whole component */
   font-size: 1rem;
   /* base line height */
@@ -838,6 +838,7 @@
   /* will increase font weight a bit on Safari */
   font-weight: 450;
   text-align: left;
+  overflow: scroll;
   text-rendering: optimizeLegibility;
   direction: ltr;
   contain: layout style size;

@@ -6,22 +6,24 @@ var fs = require('fs');
 var path = require('path');
 var Chart = require('chart.js');
 var request = require('request');
+var rp = require('request-promise');
 const getCountryISO3 = require("country-iso-2-to-3");
 var serveStatic = require('serve-static');
 
 var express = require('express')
 	, app = express();
 const PORT = process.env.PORT || 3000;
+var router = express.Router();
 
 var filename = "";
+var thing = '';
 
-
-
+app.use(express.urlencoded({ extended: false }))
 app.use(serveStatic('public', { 'index': ['index.html'] }))
 
 var options = {
   'method': 'POST',
-  'url': 'https://jjdxb1aex5.execute-api.us-west-2.amazonaws.com/dev-2/soundexchange',
+  'uri': 'https://jjdxb1aex5.execute-api.us-west-2.amazonaws.com/dev-2/soundexchange',
   'headers': {
     'Content-Type': 'application/json'
   },
@@ -29,14 +31,23 @@ var options = {
 
 };
 
+app.post('/handler', function (req, res) {
+  console.log(req.body);
+  res.send(req.body);
+});
+
 app.post('/', function (req, res){
-  var thing;
-  request(options, function (error, response) {
-    if (error) throw new Error(error);
-    console.log(response.body);
-    thing = response.body;
-  });
-  return res.json({"statusCode": "200", "body": thing});
+  rp(options)
+    .then(function (parsedBody) {
+        // POST succeeded...
+      return res.json({"statusCode": "200", "body": parsedBody});
+    })
+    .catch(function (err) {
+        // POST failed...
+      return res.send(err)
+    });
+
+
 });
 
 

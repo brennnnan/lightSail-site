@@ -303,7 +303,7 @@ input[type="reset"] {
   -webkit-appearance: button;
 }
 .w-form {
-  margin: 0 0 15px;
+  margin-top: 35px;
 }
 .w-form-done {
   display: none;
