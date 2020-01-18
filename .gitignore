@@ -102,3 +102,6 @@ dist
 
 # TernJS port file
 .tern-port
+
+public/options.js
+public/js/aws-sdk.js

@@ -2,24 +2,36 @@
 //Setup
 
 const formidableMiddleware = require('express-formidable');
+const dotenv = require('dotenv');
 var fs = require('fs');
 var path = require('path');
-var Chart = require('chart.js');
 var request = require('request');
 var rp = require('request-promise');
-const getCountryISO3 = require("country-iso-2-to-3");
 var serveStatic = require('serve-static');
+const aws = require('aws-sdk');
+
+
 
 var express = require('express')
 	, app = express();
 const PORT = process.env.PORT || 3000;
 var router = express.Router();
+const basicAuth = require('express-basic-auth')
 
 var filename = "";
 var thing = '';
 
+dotenv.config();
+
+app.use(basicAuth({
+    users: {
+        '###': '###',
+        '###': '###'
+    },
+    challenge: true
+}))
 app.use(express.urlencoded({ extended: false }))
-app.use(serveStatic('public', { 'index': ['index.html'] }))
+app.use(express.static(path.join(__dirname, 'public')));
 
 var options = {
   'method': 'POST',
@@ -34,6 +46,12 @@ var options = {
 app.post('/handler', function (req, res) {
   console.log(req.body);
   res.send(req.body);
+});
+
+
+app.post('/pond', function (req, res) {
+  console.log(req.body);
+  res.send('5476206592743');
 });
 
 app.post('/', function (req, res){
@@ -64,6 +82,4 @@ app.get('/', (req, res) => {
 
 
 
-
-
-app.listen(PORT, () => console.log('App listening on port '+PORT));
+app.listen(PORT, () => console.log('App listening on port '+PORT+'\nAnd your name is ' + process.env.NAME + '.'));
