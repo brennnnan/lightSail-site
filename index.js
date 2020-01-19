@@ -49,10 +49,6 @@ app.post('/handler', function (req, res) {
 });
 
 
-app.post('/pond', function (req, res) {
-  console.log(req.body);
-  res.send('5476206592743');
-});
 
 app.post('/', function (req, res){
   rp(options)
