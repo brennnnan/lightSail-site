@@ -64,25 +64,132 @@
                 <option value="2020">2020</option>
               </select>
             </div>
-            <input type="submit" value="Retrieve" data-wait="Please wait..." class="submit-button-2 w-button">
+            <input type="submit" onClick="fillATH()" value="Retrieve" data-wait="Please wait..." class="submit-button-2 w-button">
           </div>
         </form>
-        <div class="w-form-done">
-          <div>Thank you! Your submission has been received!</div>
-        </div>
-        <div class="w-form-fail">
-          <div>Oops! Something went wrong while submitting the form.</div>
-        </div>
       </div>
       <ul id="Channels" class="list w-list-unstyled">
-        <li class="list-item"></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
+        <li class="list-item" id="jazzgroove-west"></li>
+        <li id="jazzgroove-east"></li>
+        <li id='Dreams'></li>
+        <li id='Gems'></li>
+        <li id='Smooth'></li>
       </ul>
     </div>
   </div>
+  <script>
+  var ATH = {
+  "year": {
+    "2019": {
+      "1": {
+        "jazzgroove-west": 120394,
+        "jazzgroove-east": 1550,
+        "Dreams": 5299,
+        "Gems": 7222,
+        "Smooth": 888
+      },
+      "2": {
+        "jazzgroove-west": 120394,
+        "jazzgroove-east": 1550,
+        "Dreams": 5299,
+        "Gems": 7222,
+        "Smooth": 888
+      },
+      "3": {
+        "jazzgroove-west": 120394,
+        "jazzgroove-east": 1550,
+        "Dreams": 5299,
+        "Gems": 7222,
+        "Smooth": 888
+      },
+      "4": {
+        "jazzgroove-west": 120394,
+        "jazzgroove-east": 1550,
+        "Dreams": 5299,
+        "Gems": 7222,
+        "Smooth": 888
+      },
+      "5": {
+        "jazzgroove-west": 120394,
+        "jazzgroove-east": 1550,
+        "Dreams": 5299,
+        "Gems": 7222,
+        "Smooth": 888
+      },
+      "6": {
+        "jazzgroove-west": 120394,
+        "jazzgroove-east": 1550,
+        "Dreams": 5299,
+        "Gems": 7222,
+        "Smooth": 888
+      },
+      "7": {
+        "jazzgroove-west": 120394,
+        "jazzgroove-east": 1550,
+        "Dreams": 5299,
+        "Gems": 7222,
+        "Smooth": 888
+      },
+      "8": {
+        "jazzgroove-west": 120394,
+        "jazzgroove-east": 1550,
+        "Dreams": 5299,
+        "Gems": 7222,
+        "Smooth": 888
+      },
+      "9": {
+        "jazzgroove-west": 120394,
+        "jazzgroove-east": 1550,
+        "Dreams": 5299,
+        "Gems": 7222,
+        "Smooth": 888
+      },
+      "10": {
+        "jazzgroove-west": 120394,
+        "jazzgroove-east": 1550,
+        "Dreams": 5299,
+        "Gems": 7222,
+        "Smooth": 888
+      },
+      "11": {
+        "jazzgroove-west": 120394,
+        "jazzgroove-east": 1550,
+        "Dreams": 5299,
+        "Gems": 7222,
+        "Smooth": 888
+      },
+      "12": {
+        "jazzgroove-west": 120394,
+        "jazzgroove-east": 1550,
+        "Dreams": 5299,
+        "Gems": 7222,
+        "Smooth": 888
+      }
+  },
+    "2020": {
+      "01": {
+        "jazzgroove-west": 120394,
+        "jazzgroove-east": 1550,
+        "Dreams": 5299,
+        "Gems": 7222,
+        "Smooth": 888
+      }
+    }
+  }
+}
+  </script>
+  <script>
+  function fillATH() {
+    var month = document.getElementById('month').value;
+    var year = document.getElementById('Year-2').value;
+    var obj = ATH.year[year][month];
+    document.getElementById('jazzgroove-west').innerHTML = 'Jazzgroove West: ' + obj['jazzgroove-west']
+    document.getElementById('jazzgroove-east').innerHTML = 'Jazzgroove East: ' + obj['jazzgroove-east']
+    document.getElementById('Dreams').innerHTML = 'Jazzgroove Dreams: ' + obj['Dreams']
+    document.getElementById('Gems').innerHTML = 'Jazzgroove Gems: ' + obj['Gems']
+    document.getElementById('Smooth').innerHTML = 'Jazzgroove Smooth: ' + obj['Smooth']
+  }
+  </script>
   <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.4.1.min.220afd743d.js" type="text/javascript" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <script src="js/webflow.js" type="text/javascript"></script>
   <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
